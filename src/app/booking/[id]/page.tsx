@@ -28,9 +28,9 @@ export default async function BookingPage() {
     }),         
     time: "10:00",    
     guests: 2,
+    id: "222",
+    user: user
   },
-  id: "222",
-  user: user
 }//;await getBookingById(params.id);
 
   if (!booking) {
@@ -42,13 +42,13 @@ export default async function BookingPage() {
       <h1 className="text-2xl font-semibold mb-6 text-center">Review Your Booking</h1>
 
       <div className="space-y-6 w-full">
-        <UserInfo user={booking.user} />
-        <BookingDetails details={booking} />
+        <UserInfo user={booking.details.user} />
+        <BookingDetails details={booking.details} />
         <BookingRules />
         <TermsAgreement />
       </div>
 
-      <ConfirmFooter bookingId={booking.id}/>
+      <ConfirmFooter bookingId={booking.details.id}/>
     </main>
   );
 }

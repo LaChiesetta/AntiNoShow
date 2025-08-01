@@ -12,7 +12,7 @@ import {
 
 import type { BookingDetailsProps } from '@/types/components';
 
-export const BookingDetails: FC<BookingDetailsProps> = ({ details }) => {
+export const BookingDetails: FC<BookingDetailsProps> = ({details}) => {
   const formattedDate = new Date(details.date).toLocaleDateString(undefined, {
     weekday: 'short',
     year: 'numeric',

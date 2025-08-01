@@ -20,7 +20,7 @@ export type BookingDetailsProps = {
     time: string;         // e.g. "19:30"
     guests: number;
     notes?: string;
+    id: string;
+    user: User;
   };
-  id: string;
-  user: User;
 };
