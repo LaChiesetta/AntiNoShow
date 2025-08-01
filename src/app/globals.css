@@ -1,1 +1,23 @@
 @import "tailwindcss";
+
+/* =========
+   Global CSS
+   ========= */
+
+/* 1. Tailwind Preflight already includes a CSS reset, so no need to repeat it. */
+
+/* 2. Custom global styles */
+
+html {
+  scroll-behavior: smooth;
+  font-feature-settings: 'kern';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 3. Body styles */
+body {
+  background-color: #ffffff;
+  color: #111827;
+  font-family: theme('fontFamily.sans'); /* Make sure you define it in tailwind.config.js */
+}
