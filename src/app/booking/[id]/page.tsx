@@ -6,7 +6,7 @@ import { BookingRules } from './components/BookingRules';
 import { TermsAgreement } from './components/TermsAgreement';
 import { ConfirmFooter } from './components/ConfirmFooter';
 
-import type { User, BookingPageProps, BookingDetailsProps } from '@/types/components';
+import type { User, BookingDetailsProps } from '@/types/components';
 
 import { notFound } from 'next/navigation';
 
@@ -16,7 +16,8 @@ const user: User = {
     phone: "344343434"
 };
 
-export default async function BookingPage({ params }: BookingPageProps) {
+//export default async function BookingPage({ params }: BookingPageProps) {
+export default async function BookingPage() {
   const booking: BookingDetailsProps = {
     details: {
     date: new Date("01/01/2025").toLocaleDateString('en-US', {
@@ -28,7 +29,7 @@ export default async function BookingPage({ params }: BookingPageProps) {
     time: "10:00",    
     guests: 2,
   },
-  id: params.id,
+  id: "222",
   user: user
 }//;await getBookingById(params.id);
 
