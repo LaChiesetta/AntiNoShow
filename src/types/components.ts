@@ -9,7 +9,9 @@ export type UserInfoProps = {
 };
 
 export type BookingPageProps = {
-  params: { id: string };
+  params: {
+    id: string;
+  };
 };
 
 export type BookingDetailsProps = {

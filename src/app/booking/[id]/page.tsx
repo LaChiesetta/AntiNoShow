@@ -28,7 +28,7 @@ export default async function BookingPage({ params }: BookingPageProps) {
     time: "10:00",    
     guests: 2,
   },
-  id: "2",
+  id: params.id,
   user: user
 }//;await getBookingById(params.id);
 
