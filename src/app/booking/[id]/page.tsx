@@ -43,7 +43,7 @@ export default async function BookingPage() {
 
       <div className="space-y-6 w-full">
         <UserInfo user={booking.user} />
-        <BookingDetails details={booking.details} />
+        <BookingDetails details={booking} />
         <BookingRules />
         <TermsAgreement />
       </div>
