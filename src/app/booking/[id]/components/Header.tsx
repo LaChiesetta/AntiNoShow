@@ -5,14 +5,14 @@ import restaurantLogo from "@/assets/restaurant-logo.png";
 
 export const Header = () => {
   return (  
-    <header className="header sticky z-50 bg-card shadow-card border-border/50 flex items-center justify-between p-6 w-full animate-fade-in top-2 mb-6">
+    <header className="backdrop-blur-sm header sticky z-50 bg-card shadow-card border-border/50 flex items-center justify-between p-6 w-full animate-fade-in top-2 mb-6">
       {/* Logo */}
       <div className="flex items-center space-x-3">
         <Image
           src={restaurantLogo}
           alt="Restaurant Logo"
-          width={40}
-          height={40}
+          width={70}
+          height={70}
           className="object-contain"
         />
       </div>
