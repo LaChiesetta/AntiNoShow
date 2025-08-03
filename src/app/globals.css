@@ -287,7 +287,12 @@
   
   /* Gradient utilities */
   .bg-gradient-warm {
-    background: var(--gradient-warm);
+    background: rgba(255, 255, 255, 0.35); /* semi-transparent */
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.14);
+    backdrop-filter: blur(10px); /* main glass effect */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* subtle border */
   }
   
   .bg-gradient-terracotta {
@@ -322,7 +327,7 @@
 }
 
 .bg-background\/85 {
-    background-color: hsl(var(--background) / 0.80);
+    background-color: hsl(var(--background) / 0.50);
 }
 
 .text-card-foreground {
@@ -330,9 +335,20 @@
 }
 
 .bg-card {
-    background-color: hsl(var(--card));
+    background: rgba(255, 255, 255, 0.1); /* semi-transparent */
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px); /* main glass effect */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* subtle border */
 }
 
 .rounded-sm {
     border-radius: calc(var(--radius) - 4px);
+}
+
+/* Header */
+.header {
+    background: rgba(142, 29, 60, 0.36) !important; /* semi-transparent */
+    box-shadow: 0 2px 16px rgba(142, 29, 60, 0.8); /* soft shadow below */
 }

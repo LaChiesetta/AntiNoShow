@@ -7,6 +7,7 @@ import { BookingInfoCard } from "@/app/booking/[id]/components/BookingInfoCard";
 import { NoShowPolicyCard } from "@/app/booking/[id]/components/NoShowPolicyCard";
 import { PromotionsCarousel } from "@/app/booking/[id]/components/PromotionsCarousel";
 import { TermsCheckbox } from "@/app/booking/[id]/components/TermsCheckbox";
+import { Header } from "@/app/booking/[id]/components/Header";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import restaurantBg from "@/assets/restaurant-bg.jpg";
 
@@ -41,14 +42,7 @@ const BookingConfirmation = () => {
       
       <div className="relative z-10 min-h-screen p-4 max-w-md mx-auto">
         {/* Header */}
-        <div className="text-center py-6 mb-6">
-          <h1 className="text-2xl font-bold text-foreground mb-2">
-            Confirm Your Reservation
-          </h1>
-          <p className="text-muted-foreground">
-            Please review your booking details below
-          </p>
-        </div>
+        <Header />
 
         {/* Main Content */}
         <div className="space-y-6">
