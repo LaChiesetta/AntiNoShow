@@ -1,54 +1,99 @@
-// app/booking/[id]/page.tsx
+'use client';
 
-import { BookingDetails } from './components/BookingDetails';
-import { UserInfo } from './components/UserInfo';
-import { BookingRules } from './components/BookingRules';
-import { TermsAgreement } from './components/TermsAgreement';
-import { ConfirmFooter } from './components/ConfirmFooter';
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { UserDetailsCard } from "@/app/booking/[id]/components/UserDetailsCard";
+import { BookingInfoCard } from "@/app/booking/[id]/components/BookingInfoCard";
+import { NoShowPolicyCard } from "@/app/booking/[id]/components/NoShowPolicyCard";
+import { PromotionsCarousel } from "@/app/booking/[id]/components/PromotionsCarousel";
+import { TermsCheckbox } from "@/app/booking/[id]/components/TermsCheckbox";
+import { ArrowRight, CheckCircle } from "lucide-react";
+import restaurantBg from "@/assets/restaurant-bg.jpg";
 
-import type { User, BookingDetailsProps } from '@/types/components';
+const BookingConfirmation = () => {
+  const [user, setUser] = useState({
+    name: "Sarah Johnson",
+    phone: "+1 (555) 123-4567",
+    email: "sarah.johnson@email.com"
+  });
 
-import { notFound } from 'next/navigation';
+  const [termsAccepted, setTermsAccepted] = useState(false);
 
-const user: User = {
-    name: "paolo",
-    email:"email@email.com",
-    phone: "344343434"
-};
+  const booking = {
+    date: "Saturday, March 16, 2024",
+    time: "7:30 PM",
+    guests: 4,
+    specialRequests: "Birthday celebration - could we have a corner table with a view? Also, one guest has a gluten allergy."
+  };
 
-//export default async function BookingPage({ params }: BookingPageProps) {
-export default async function BookingPage() {
-  const booking: BookingDetailsProps = {
-    details: {
-    date: new Date("01/01/2025").toLocaleDateString('en-US', {
-      weekday: 'short',
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-    }),         
-    time: "10:00",    
-    guests: 2,
-    id: "222",
-    user: user
-  },
-}//;await getBookingById(params.id);
-
-  if (!booking) {
-    return notFound();
-  }
+  const handleContinue = () => {
+    // Handle continue to payment/confirmation
+    console.log("Proceeding to payment...");
+  };
 
   return (
-    <main className="min-h-screen bg-white text-gray-800 flex flex-col items-center px-4 py-6 max-w-md mx-auto">
-      <h1 className="text-2xl font-semibold mb-6 text-center">Review Your Booking</h1>
+    <div 
+      className="min-h-screen bg-cover bg-center bg-no-repeat relative"
+      style={{ backgroundImage: `url(${restaurantBg.src})` }}
+    >
+      {/* Overlay for better readability */}
+      <div className="absolute inset-0 bg-background/85 backdrop-blur-sm" />
+      
+      <div className="relative z-10 min-h-screen p-4 max-w-md mx-auto">
+        {/* Header */}
+        <div className="text-center py-6 mb-6">
+          <h1 className="text-2xl font-bold text-foreground mb-2">
+            Confirm Your Reservation
+          </h1>
+          <p className="text-muted-foreground">
+            Please review your booking details below
+          </p>
+        </div>
 
-      <div className="space-y-6 w-full">
-        <UserInfo user={booking.details.user} />
-        <BookingDetails details={booking.details} />
-        <BookingRules />
-        <TermsAgreement />
+        {/* Main Content */}
+        <div className="space-y-6">
+          <UserDetailsCard user={user} onUpdate={setUser} />
+          
+          <BookingInfoCard booking={booking} />
+          
+          <NoShowPolicyCard />
+          
+          <PromotionsCarousel />
+          
+          <TermsCheckbox 
+            checked={termsAccepted} 
+            onCheckedChange={setTermsAccepted} 
+          />
+          
+          {/* Continue Button */}
+          <div className="sticky bottom-4 pt-4">
+            <Button
+              onClick={handleContinue}
+              disabled={!termsAccepted}
+              variant="elegant"
+              size="lg"
+              className="w-full py-4 text-base font-semibold"
+            >
+              {termsAccepted ? (
+                <>
+                  <CheckCircle className="w-5 h-5 mr-2" />
+                  Continue to Payment
+                </>
+              ) : (
+                <>
+                  Accept Terms to Continue
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </>
+              )}
+            </Button>
+          </div>
+        </div>
+
+        {/* Bottom Spacing */}
+        <div className="h-20" />
       </div>
-
-      <ConfirmFooter bookingId={booking.details.id}/>
-    </main>
+    </div>
   );
-}
+};
+
+export default BookingConfirmation;

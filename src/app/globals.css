@@ -1,23 +1,338 @@
 @import "tailwindcss";
+/*@import "tailwindcss/preflight";*/
+/*@import "tailwindcss/preflight";*/
+/*@tailwind utilities;*/
 
-/* =========
-   Global CSS
-   ========= */
 
-/* 1. Tailwind Preflight already includes a CSS reset, so no need to repeat it. */
-
-/* 2. Custom global styles */
-
-html {
-  scroll-behavior: smooth;
-  font-feature-settings: 'kern';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
 }
 
-/* 3. Body styles */
-body {
-  background-color: #ffffff;
-  color: #111827;
-  font-family: theme('fontFamily.sans'); /* Make sure you define it in tailwind.config.js */
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Restaurant booking design system with warm, elegant colors */
+
+@layer base {
+  :root {
+    /* Warm earth tone palette */
+    --background: 35 20% 98%;
+    --foreground: 25 20% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 25 20% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 25 20% 15%;
+
+    /* Warm terracotta primary */
+    --primary: 15 75% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 15 75% 50%;
+
+    /* Cream secondary */
+    --secondary: 35 25% 95%;
+    --secondary-foreground: 25 20% 15%;
+
+    /* Soft warm muted */
+    --muted: 35 15% 92%;
+    --muted-foreground: 25 15% 45%;
+
+    /* Gold accent */
+    --accent: 45 85% 65%;
+    --accent-foreground: 25 20% 15%;
+
+    --destructive: 0 75% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 35 15% 88%;
+    --input: 35 15% 88%;
+    --ring: 15 75% 55%;
+
+    --radius: 0.75rem;
+
+    /* Custom restaurant theme colors */
+    --warm-brown: 25 35% 25%;
+    --cream: 35 25% 95%;
+    --terracotta: 15 75% 55%;
+    --terracotta-hover: 15 75% 50%;
+    --gold: 45 85% 65%;
+    --sage: 120 15% 70%;
+    
+    /* Gradients */
+    --gradient-warm: linear-gradient(135deg, hsl(35 25% 95%), hsl(35 20% 92%));
+    --gradient-terracotta: linear-gradient(135deg, hsl(15 75% 55%), hsl(20 70% 50%));
+    --gradient-gold: linear-gradient(135deg, hsl(45 85% 65%), hsl(50 80% 60%));
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(25 20% 15% / 0.1);
+    --shadow-elegant: 0 8px 30px -8px hsl(15 75% 55% / 0.2);
+    --shadow-card: 0 2px 12px -2px hsl(25 20% 15% / 0.08);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 25 15% 8%;
+    --foreground: 35 25% 95%;
+
+    --card: 25 15% 10%;
+    --card-foreground: 35 25% 95%;
+
+    --popover: 25 15% 10%;
+    --popover-foreground: 35 25% 95%;
+
+    --primary: 15 75% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 15 75% 50%;
+
+    --secondary: 25 20% 15%;
+    --secondary-foreground: 35 25% 95%;
+
+    --muted: 25 10% 20%;
+    --muted-foreground: 35 15% 65%;
+
+    --accent: 45 85% 65%;
+    --accent-foreground: 25 20% 15%;
+    
+    /* Dark mode custom colors */
+    --warm-brown: 35 25% 85%;
+    --cream: 25 15% 15%;
+    --terracotta: 15 75% 55%;
+    --terracotta-hover: 15 75% 50%;
+    --gold: 45 85% 65%;
+    --sage: 120 15% 70%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 25 15% 25%;
+    --input: 25 15% 25%;
+    --ring: 15 75% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer utilities {
+  /* Custom utility classes for better design consistency */
+  .text-terracotta {
+    color: hsl(var(--terracotta));
+  }
+  
+  .text-terracotta\/80 {
+    color: hsl(var(--terracotta) / 0.8);
+  }
+  
+  .hover\:text-terracotta\/80:hover {
+    color: hsl(var(--terracotta) / 0.8);
+  }
+  
+  .bg-terracotta {
+    background-color: hsl(var(--terracotta));
+  }
+  
+  .bg-terracotta\/10 {
+    background-color: hsl(var(--terracotta) / 0.1);
+  }
+  
+  .hover\:bg-terracotta\/10:hover {
+    background-color: hsl(var(--terracotta) / 0.1);
+  }
+  
+  .hover\:bg-terracotta\/90:hover {
+    background-color: hsl(var(--terracotta) / 0.9);
+  }
+  
+  .border-terracotta {
+    border-color: hsl(var(--terracotta));
+  }
+  
+  .focus\:border-terracotta:focus {
+    border-color: hsl(var(--terracotta));
+  }
+  
+  .focus\:ring-terracotta\/20:focus {
+    box-shadow: 0 0 0 3px hsl(var(--terracotta) / 0.2);
+  }
+  
+  .data-\[state\=checked\]\:bg-terracotta[data-state="checked"] {
+    background-color: hsl(var(--terracotta));
+  }
+  
+  .data-\[state\=checked\]\:border-terracotta[data-state="checked"] {
+    border-color: hsl(var(--terracotta));
+  }
+  
+  /* Gold color utilities */
+  .text-gold {
+    color: hsl(var(--gold));
+  }
+  
+  .bg-gold {
+    background-color: hsl(var(--gold));
+  }
+  
+  .border-gold {
+    border-color: hsl(var(--gold));
+  }
+  
+  /* Sage color utilities */
+  .text-sage {
+    color: hsl(var(--sage));
+  }
+  
+  .bg-sage {
+    background-color: hsl(var(--sage));
+  }
+  
+  .border-sage {
+    border-color: hsl(var(--sage));
+  }
+  
+  /* Cream color utilities */
+  .text-cream {
+    color: hsl(var(--cream));
+  }
+  
+  .bg-cream {
+    background-color: hsl(var(--cream));
+  }
+  
+  .border-cream {
+    border-color: hsl(var(--cream));
+  }
+  
+  /* Warm brown color utilities */
+  .text-warm-brown {
+    color: hsl(var(--warm-brown));
+  }
+  
+  .bg-warm-brown {
+    background-color: hsl(var(--warm-brown));
+  }
+  
+  .border-warm-brown {
+    border-color: hsl(var(--warm-brown));
+  }
+  
+  /* Additional muted utilities */
+  .bg-muted\/30 {
+    background-color: hsl(var(--muted) / 0.3);
+  }
+  
+  .border-border\/50 {
+    border-color: hsl(var(--border) / 0.5);
+  }
+  
+  /* Gradient utilities */
+  .bg-gradient-warm {
+    background: var(--gradient-warm);
+  }
+  
+  .bg-gradient-terracotta {
+    background: var(--gradient-terracotta);
+  }
+  
+  .bg-gradient-gold {
+    background: var(--gradient-gold);
+  }
+  
+  /* Shadow utilities */
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+  
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  
+  /* Transition utilities */
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-spring {
+    transition: var(--transition-spring);
+  }
+}
+
+.bg-background\/85 {
+    background-color: hsl(var(--background) / 0.80);
+}
+
+.text-card-foreground {
+    color: hsl(var(--card-foreground));
+}
+
+.bg-card {
+    background-color: hsl(var(--card));
+}
+
+.rounded-sm {
+    border-radius: calc(var(--radius) - 4px);
 }
