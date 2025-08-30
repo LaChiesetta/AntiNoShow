@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ReservationList } from '@/components/admin/dashboard/reservation-list';
+import { ReservationCalendar } from '@/components/admin/dashboard/reservation-calendar';
 import { mockReservations } from '@/lib/mock-data';
 import { Reservation } from '@/types';
 
@@ -38,16 +38,8 @@ export default function ReservationsPage() {
         </select>
       </div>
 
-      <div className="bg-white rounded-lg p-4 mb-4">
-        <p className="text-sm text-gray-600">
-          Showing {filteredReservations.length} of {mockReservations.length} reservations
-        </p>
-      </div>
-
-      <ReservationList 
-        reservations={filteredReservations}
-        showHeader={false}
-      />
+      <ReservationCalendar
+              showHeader={true} reservations={[]}      />
     </div>
   );
 }
