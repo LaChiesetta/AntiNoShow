@@ -1,6 +1,7 @@
 import { Reservation } from '@/types';
 
-export const mockReservations: Reservation[] = [
+// In a real app, this would be stored in a database
+const reservationsStore: Reservation[] = [
   {
     id: '1',
     customerName: 'John Doe',
@@ -32,9 +33,22 @@ export const mockReservations: Reservation[] = [
   },
 ];
 
+export const mockReservations = reservationsStore;
+
 export const mockStats = {
   totalReservations: 156,
   todayReservations: 12,
   pendingReservations: 8,
   revenue: 4200,
+};
+
+// Function to add new reservation (mock)
+export const addReservation = (reservation: Omit<Reservation, 'id'>): Reservation => {
+  const newReservation: Reservation = {
+    ...reservation,
+    id: Date.now().toString(), // Simple ID generation for demo
+  };
+  
+  reservationsStore.unshift(newReservation);
+  return newReservation;
 };
